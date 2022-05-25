@@ -1,25 +1,23 @@
-import logo from './logo.svg';
+import React from 'react';
+import categories from './api/api';
 import './App.css';
+import Row from './components/Row';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App" >
+            { /*navbar*/}
+            { /*destaque*/}
+            { /*em alta*/}
+            {categories.map((categories) => {
+                return <Row
+                    key={categories.name}
+                    title={categories.title}
+                    path={categories.path}
+                />
+            })}
+        </div>
+    )
 }
 
 export default App;
