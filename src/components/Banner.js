@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import categories, { getMovies } from '../api/api';
 import "./Banner.css";
 
@@ -24,12 +24,31 @@ function Banner() {
 
     };
 
-    useEffect(() => { }, []);
+    useEffect(() => {
+
+        fetchRandomMovie();
+
+    }, []);
 
 
     return (
-        <div>Banner</div>
-    )
+        <header
+            className="banner-content"
+            style={{
+                backgroundSize: "cover",
+                backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
+                roundPosition: "center-center",
+            }}
+        >
+
+            <div className="banner-content">
+                <h1 className="banner-title">
+                    {movie?.title || movie?.name || movie?.original_name}
+                </h1>
+            </div>
+
+        </header>
+    );
 }
 
-export default Banner
+export default Banner;
