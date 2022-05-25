@@ -1,14 +1,14 @@
 import React from 'react';
 import categories from './api/api';
 import './App.css';
+import Banner from './components/Banner';
 import Row from './components/Row';
 
 function App() {
     return (
         <div className="App" >
             { /*navbar*/}
-            { /*destaque*/}
-            { /*em alta*/}
+            <Banner />
             {categories.map((categories) => {
                 return <Row
                     key={categories.name}
