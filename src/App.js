@@ -14,6 +14,7 @@ function App() {
                     key={categories.name}
                     title={categories.title}
                     path={categories.path}
+                    isLarge={categories.isLarge}
                 />
             })}
         </div>
