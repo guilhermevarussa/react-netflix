@@ -3,11 +3,11 @@ import categories from './api/api';
 import './App.css';
 import Banner from './components/Banner';
 import Row from './components/Row';
-
+import Nav from './components/Nav';
 function App() {
     return (
         <div className="App" >
-            { /*navbar*/}
+            <Nav />
             <Banner />
             {categories.map((categories) => {
                 return <Row
