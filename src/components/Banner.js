@@ -31,9 +31,13 @@ function Banner() {
     }, []);
 
 
+    function truncate(str, n) {
+        return str?.length > n ? str.substring(0, n - 1) + "..." : str;
+      }
+
     return (
         <header
-            className="banner-content"
+            className="banner-container"
             style={{
                 backgroundSize: "cover",
                 backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
@@ -45,8 +49,17 @@ function Banner() {
                 <h1 className="banner-title">
                     {movie?.title || movie?.name || movie?.original_name}
                 </h1>
-            </div>
 
+                <div className='banner-button-container'>
+                    <button className="banner-button">Watch</button>
+                    <button className="banner-button">My List</button>
+                </div>
+
+                <div className='banner-description'>
+                    <h2>{truncate (movie?.overview, 150)}</h2>
+                </div>
+
+            </div>
         </header>
     );
 }
