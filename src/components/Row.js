@@ -1,4 +1,5 @@
 
+import movieTrailer from "movie-trailer";
 import React, { useEffect } from "react";
 import ReactPlayer from "react-player";
 import { getMovies } from "../api/api";
@@ -15,7 +16,13 @@ function Row({ title, path, isLarge }) {
         if (trailerUrl) {
             setTrailerUrl("")
         } else {
-            setTrailerUrl('https://www.youtube.com/watch?v=sOijqHXbjxk&list=WL&index=8&t=11s&ab_channel=pasquadev')
+            movieTrailer(movie.title || movie.name || movie.original_name || "")
+                .then((url) => {
+                    setTrailerUrl(url)
+                })
+                .catch((error) => {
+                    console.log("Error fetchiing movie trailler :", error)
+                })
         }
 
     }
